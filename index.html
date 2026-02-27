@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Flash QGate Firmware</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QGate Firmware Flash</title>
+  <link rel="stylesheet" href="./style.css" />
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 </head>
 <body>
-  <h1>Flash QGate Firmware</h1>
-  <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+
+  <header>
+    <div class="logo-badge">
+      <!-- wifi/signal icon -->
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+        <circle cx="12" cy="20" r="1" fill="currentColor"/>
+      </svg>
+      QGate Device Flasher
+    </div>
+
+    <h1>Flash <span>QGate</span> Firmware</h1>
+    <p class="subtitle">One-click firmware installation via USB — no drivers needed.</p>
+  </header>
+
+  <div class="card">
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Connect your <strong>QGate device</strong> to this computer using a USB cable.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Click <strong>Install Firmware</strong> and select the correct serial port when prompted.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Wait for the flash to complete, then <strong>reboot</strong> your device.</div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="flash-section">
+      <div class="flash-label">Ready to flash</div>
+      <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
+      <div class="compat">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        Requires Chrome or Edge — Web Serial API must be enabled.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Powered by <a href="https://www.qweekle.com/" target="_blank" rel="noopener">Qweekle</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a>
+  </footer>
+
 </body>
 </html>
