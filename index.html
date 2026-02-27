@@ -6,7 +6,7 @@
   <title>Flash Firmware QGate</title>
   <link rel="stylesheet" href="./style.css" />
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
-  <script defer src="./serial.js"></script>
+
 </head>
 <body>
 
@@ -56,44 +56,6 @@
         </svg>
         Nécessite Chrome ou Edge — l'API Web Serial doit être activée.
       </div>
-    </div>
-
-  </div>
-
-  <!-- ── Log viewer ── -->
-  <div class="card log-card">
-
-    <div class="log-header">
-      <div class="log-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
-        </svg>
-        Console série
-      </div>
-      <div class="log-status">
-        <span class="status-dot" id="log-status-dot"></span>
-        <span id="log-status-text">Déconnecté</span>
-      </div>
-    </div>
-
-    <div id="log-terminal" class="log-terminal">
-      <div class="log-line log-line--hint">En attente de connexion…</div>
-    </div>
-
-    <div class="log-actions">
-      <button id="log-connect" class="btn btn-primary">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-        </svg>
-        Connecter
-      </button>
-      <button id="log-disconnect" class="btn btn-danger" hidden>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-        Déconnecter
-      </button>
-      <button id="log-clear" class="btn btn-ghost">Effacer</button>
     </div>
 
   </div>
