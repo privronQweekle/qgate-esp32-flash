@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QGate Firmware Flash</title>
+  <title>Flash Firmware QGate</title>
   <link rel="stylesheet" href="./style.css" />
   <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <script defer src="./serial.js"></script>
 </head>
 <body>
 
@@ -21,8 +22,8 @@
       QGate Device Flasher
     </div>
 
-    <h1>Flash <span>QGate</span> Firmware</h1>
-    <p class="subtitle">One-click firmware installation via USB — no drivers needed.</p>
+    <h1>Flash du firmware <span>QGate</span></h1>
+    <p class="subtitle">Installation du firmware en un clic via USB — aucun pilote requis.</p>
   </header>
 
   <div class="card">
@@ -30,22 +31,22 @@
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text">Connect your <strong>QGate device</strong> to this computer using a USB cable.</div>
+        <div class="step-text">Connectez votre <strong>appareil QGate</strong> à cet ordinateur via un câble USB.</div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-text">Click <strong>Install Firmware</strong> and select the correct serial port when prompted.</div>
+        <div class="step-text">Cliquez sur <strong>Connecter</strong> et sélectionnez le port série approprié.</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text">Wait for the flash to complete, then <strong>reboot</strong> your device.</div>
+        <div class="step-text">Attendez la fin du flash, puis <strong>redémarrez</strong> votre appareil.</div>
       </div>
     </div>
 
     <hr class="divider" />
 
     <div class="flash-section">
-      <div class="flash-label">Ready to flash</div>
+      <div class="flash-label">Prêt à flasher</div>
       <esp-web-install-button manifest="./manifest.json"></esp-web-install-button>
       <div class="compat">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -53,14 +54,52 @@
           <line x1="12" y1="8" x2="12" y2="12"/>
           <line x1="12" y1="16" x2="12.01" y2="16"/>
         </svg>
-        Requires Chrome or Edge — Web Serial API must be enabled.
+        Nécessite Chrome ou Edge — l'API Web Serial doit être activée.
       </div>
     </div>
 
   </div>
 
+  <!-- ── Log viewer ── -->
+  <div class="card log-card">
+
+    <div class="log-header">
+      <div class="log-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+        </svg>
+        Console série
+      </div>
+      <div class="log-status">
+        <span class="status-dot" id="log-status-dot"></span>
+        <span id="log-status-text">Déconnecté</span>
+      </div>
+    </div>
+
+    <div id="log-terminal" class="log-terminal">
+      <div class="log-line log-line--hint">En attente de connexion…</div>
+    </div>
+
+    <div class="log-actions">
+      <button id="log-connect" class="btn btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
+        Connecter
+      </button>
+      <button id="log-disconnect" class="btn btn-danger" hidden>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+        Déconnecter
+      </button>
+      <button id="log-clear" class="btn btn-ghost">Effacer</button>
+    </div>
+
+  </div>
+
   <footer>
-    Powered by <a href="https://www.qweekle.com/" target="_blank" rel="noopener">Qweekle</a>
+    Propulsé par <a href="https://www.qweekle.com/" target="_blank" rel="noopener">Qweekle</a>
     &nbsp;&middot;&nbsp;
     <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener">ESP Web Tools</a>
   </footer>

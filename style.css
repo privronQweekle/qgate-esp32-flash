@@ -7,8 +7,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
+  justify-content: flex-start;
+  padding: 3rem 1rem 2rem;
   color: #333;
 }
 
@@ -160,3 +160,108 @@ footer {
 
 footer a { color: #67bfed; text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ── Log card ── */
+.log-card {
+  max-width: 680px;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.log-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #08436e;
+}
+
+.log-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  flex-shrink: 0;
+}
+
+.status-dot.connected {
+  background: #8ac575;
+  box-shadow: 0 0 0 3px rgba(138, 197, 117, 0.25);
+}
+
+/* ── Terminal ── */
+.log-terminal {
+  background: #0f1923;
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  height: 280px;
+  overflow-y: auto;
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #c8d8e8;
+  scroll-behavior: smooth;
+}
+
+.log-terminal::-webkit-scrollbar { width: 6px; }
+.log-terminal::-webkit-scrollbar-track { background: transparent; }
+.log-terminal::-webkit-scrollbar-thumb { background: #2a3a4a; border-radius: 3px; }
+
+.log-line { white-space: pre-wrap; word-break: break-all; }
+.log-line--hint { color: #445566; font-style: italic; }
+
+/* ── Log action buttons ── */
+.log-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, opacity 0.12s;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #67bfed 0%, #08436e 100%);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(103, 191, 237, 0.35);
+}
+
+.btn-danger {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.btn-danger:hover { background: #fbd5d2; }
+
+.btn-ghost {
+  background: #f0ede6;
+  color: #666;
+}
